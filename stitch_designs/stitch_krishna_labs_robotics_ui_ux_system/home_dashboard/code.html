@@ -1,0 +1,685 @@
+<!DOCTYPE html><html lang="en" class="dark"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Dashboard — Krishna Labs Robotics AI</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#34D399',
+        'on-success': '#042F1E',
+        'warning': '#FBBF24',
+        'on-warning': '#3B2300',
+        'light-primary': '#0058BE',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#2170E4',
+        'light-on-primary-container': '#FEFCFF',
+        'light-secondary': '#495E8A',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#B6CCFF',
+        'light-on-secondary-container': '#405682',
+        'light-tertiary': '#924700',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#B75B00',
+        'light-on-tertiary-container': '#FFFBFF',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F9F9FF',
+        'light-on-background': '#191B23',
+        'light-surface': '#F9F9FF',
+        'light-surface-dim': '#D8D9E3',
+        'light-surface-bright': '#F9F9FF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F2F3FD',
+        'light-surface-container': '#ECEDF7',
+        'light-surface-container-high': '#E6E7F2',
+        'light-surface-container-highest': '#E1E2EC',
+        'light-on-surface': '#191B23',
+        'light-surface-variant': '#DEE2F2',
+        'light-on-surface-variant': '#424754',
+        'light-outline': '#727785',
+        'light-outline-variant': '#C2C6D6',
+        'light-inverse-surface': '#2E3038',
+        'light-inverse-on-surface': '#EFF0FA',
+        'light-inverse-primary': '#ADC6FF',
+        'dark-primary': '#ADC6FF',
+        'dark-on-primary': '#002E6A',
+        'dark-primary-container': '#4D8EFF',
+        'dark-on-primary-container': '#001C46',
+        'dark-secondary': '#B1C6F9',
+        'dark-on-secondary': '#182F59',
+        'dark-secondary-container': '#304671',
+        'dark-on-secondary-container': '#9FB5E7',
+        'dark-tertiary': '#FFB786',
+        'dark-on-tertiary': '#502400',
+        'dark-tertiary-container': '#DF7412',
+        'dark-on-tertiary-container': '#351600',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#10131A',
+        'dark-on-background': '#E1E2EC',
+        'dark-surface': '#10131A',
+        'dark-surface-dim': '#10131A',
+        'dark-surface-bright': '#363941',
+        'dark-surface-container-lowest': '#0B0E15',
+        'dark-surface-container-low': '#191B23',
+        'dark-surface-container': '#1D2027',
+        'dark-surface-container-high': '#272A31',
+        'dark-surface-container-highest': '#32353C',
+        'dark-on-surface': '#E1E2EC',
+        'dark-surface-variant': '#424754',
+        'dark-on-surface-variant': '#C2C6D6',
+        'dark-outline': '#8C909F',
+        'dark-outline-variant': '#424754',
+        'dark-inverse-surface': '#E1E2EC',
+        'dark-inverse-on-surface': '#2E3038',
+        'dark-inverse-primary': '#005AC2',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Afacad Flux"', 'sans-serif'],
+        'headline': ['"Afacad Flux"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '46px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'headline-sm': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.3px', fontWeight: '500' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '400' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+        'face-blink': '140ms',
+        'idle-breath': '4000ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'face-blink': '0ms',
+        'idle-breath': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+        'face-blink': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'idle-breath': 'ease-in-out',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@500;600;700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=Spline+Sans+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes kl-idle-breath {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-3px) scale(1.012); }
+    }
+
+    @keyframes kl-blink {
+      0%, 94%, 100% { transform: scaleY(1); }
+      97% { transform: scaleY(0.08); }
+    }
+
+    .kl-face-breath {
+      animation: kl-idle-breath 4s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .kl-eye-blink {
+      animation: kl-blink 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kl-face-breath, .kl-eye-blink {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-dark-surface text-dark-on-surface font-body antialiased selection:bg-dark-primary selection:text-dark-on-primary">
+
+  <!-- Application Shell -->
+  <div class="min-h-[1024px] w-full flex bg-dark-surface" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Persistent Navigation Sidebar -->
+    <aside id="app-sidebar" class="min-h-[1024px] w-[220px] shrink-0 bg-dark-surface-container-lowest border-r border-dark-outline-variant/50 flex flex-col justify-between p-3 transition-[width] duration-surface-enter ease-surface-enter" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col gap-6">
+        <!-- Brand Header -->
+        <div class="flex items-center justify-between gap-2 px-2 pt-1">
+          <div class="flex items-center gap-3 overflow-hidden">
+            <div class="w-9 h-9 rounded-md bg-dark-surface-container-high border border-dark-outline-variant/60 flex items-center justify-center shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="4" stroke="#ADC6FF" stroke-width="1.75"></rect>
+                <circle cx="9" cy="12" r="1.75" fill="#ADC6FF"></circle>
+                <circle cx="15" cy="12" r="1.75" fill="#ADC6FF"></circle>
+                <path d="M12 2V5" stroke="#8C909F" stroke-width="1.75" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <div class="sidebar-label flex flex-col">
+              <span data-design-text-token="label-md" class="font-headline text-label-md text-dark-on-surface tracking-wide uppercase">Krishna Labs</span>
+              <span data-design-text-token="label-sm" class="font-label text-label-sm text-dark-on-surface-variant">Robotics AI</span>
+            </div>
+          </div>
+          <button id="sidebar-toggle" type="button" aria-label="Collapse navigation sidebar" class="inline-flex items-center justify-center w-9 h-9 rounded-sm text-dark-on-surface-variant hover:bg-dark-surface-container hover:text-dark-on-surface transition-colors duration-state-change shrink-0">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">dock_to_right</span>
+          </button>
+        </div>
+
+        <!-- Primary Navigation Links -->
+        <nav aria-label="Main navigation">
+          <ul data-component-id="list-interactive" data-component-type="list" data-component-variant="interactive" class="flex flex-col gap-1">
+            <li>
+              <a href="#home" aria-current="page" class="flex items-center gap-3 min-h-12 px-3.5 rounded-md bg-dark-surface-container-high text-dark-primary border-l-2 border-dark-primary">
+                <span class="material-symbols-outlined text-[20px] shrink-0" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">home</span>
+                <span data-design-text-token="label-lg" class="sidebar-label font-label text-label-lg whitespace-nowrap">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#assistant" class="flex items-center gap-3 min-h-12 px-3.5 rounded-md text-dark-on-surface-variant hover:bg-dark-surface-container hover:text-dark-on-surface transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">forum</span>
+                <span data-design-text-token="label-lg" class="sidebar-label font-label text-label-lg whitespace-nowrap">AI Assistant</span>
+              </a>
+            </li>
+            <li>
+              <a href="#face" class="flex items-center gap-3 min-h-12 px-3.5 rounded-md text-dark-on-surface-variant hover:bg-dark-surface-container hover:text-dark-on-surface transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">sentiment_satisfied</span>
+                <span data-design-text-token="label-lg" class="sidebar-label font-label text-label-lg whitespace-nowrap">Robot Face</span>
+              </a>
+            </li>
+            <li>
+              <a href="#vision" class="flex items-center gap-3 min-h-12 px-3.5 rounded-md text-dark-on-surface-variant hover:bg-dark-surface-container hover:text-dark-on-surface transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">visibility</span>
+                <span data-design-text-token="label-lg" class="sidebar-label font-label text-label-lg whitespace-nowrap">Vision</span>
+              </a>
+            </li>
+            <li>
+              <a href="#controls" class="flex items-center gap-3 min-h-12 px-3.5 rounded-md text-dark-on-surface-variant hover:bg-dark-surface-container hover:text-dark-on-surface transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">tune</span>
+                <span data-design-text-token="label-lg" class="sidebar-label font-label text-label-lg whitespace-nowrap">Controls</span>
+              </a>
+            </li>
+            <li>
+              <a href="#automations" class="flex items-center gap-3 min-h-12 px-3.5 rounded-md text-dark-on-surface-variant hover:bg-dark-surface-container hover:text-dark-on-surface transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">bolt</span>
+                <span data-design-text-token="label-lg" class="sidebar-label font-label text-label-lg whitespace-nowrap">Automations</span>
+              </a>
+            </li>
+            <li>
+              <a href="#activity" class="flex items-center gap-3 min-h-12 px-3.5 rounded-md text-dark-on-surface-variant hover:bg-dark-surface-container hover:text-dark-on-surface transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">history</span>
+                <span data-design-text-token="label-lg" class="sidebar-label font-label text-label-lg whitespace-nowrap">Activity</span>
+              </a>
+            </li>
+            <li>
+              <a href="#settings" class="flex items-center gap-3 min-h-12 px-3.5 rounded-md text-dark-on-surface-variant hover:bg-dark-surface-container hover:text-dark-on-surface transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">settings</span>
+                <span data-design-text-token="label-lg" class="sidebar-label font-label text-label-lg whitespace-nowrap">Settings</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Connection Status -->
+      <div class="pt-3 border-t border-dark-outline-variant/40">
+        <div class="flex items-center justify-between gap-2 px-3 py-2.5 rounded-md bg-dark-surface-container-low border border-dark-outline-variant/50">
+          <div class="flex items-center gap-2.5 overflow-hidden">
+            <span class="w-2 h-2 rounded-full bg-success shrink-0" aria-hidden="true"></span>
+            <div class="sidebar-label flex flex-col">
+              <span data-design-text-token="label-md" class="font-label text-label-md text-dark-on-surface leading-tight">Gemini Live</span>
+              <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-dark-on-surface-variant tabular-nums">42 ms · Ready</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Column -->
+    <div class="flex-1 min-w-0 flex flex-col">
+
+      <!-- Top Status & Utility Bar -->
+      <header class="h-14 px-6 border-b border-dark-outline-variant/50 bg-dark-surface-container-lowest/60 flex items-center justify-between gap-4 shrink-0">
+        <div class="flex items-center gap-3">
+          <h1 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-dark-on-surface">Home</h1>
+          <span class="text-dark-outline-variant" aria-hidden="true">/</span>
+          <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-dark-on-surface-variant tabular-nums">Tablet Core · 1280×800</span>
+        </div>
+
+        <!-- Hardware & AI Telemetry Strip -->
+        <div class="flex items-center gap-2">
+          <span data-component-id="badge-success" data-component-type="badge" data-component-variant="success" role="status" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-surface-container border border-dark-outline-variant/60 text-dark-on-surface">
+            <span class="w-2 h-2 rounded-full bg-success" aria-hidden="true"></span>
+            <span data-design-text-token="label-md" class="font-label text-label-md">Assistant Ready</span>
+          </span>
+
+          <div class="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-dark-surface-container border border-dark-outline-variant/60 text-dark-on-surface-variant" title="Camera Ready">
+            <span class="material-symbols-outlined text-[16px] text-dark-primary" aria-hidden="true">videocam</span>
+            <span data-design-text-token="label-md" class="font-label text-label-md">Camera</span>
+          </div>
+
+          <div class="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-dark-surface-container border border-dark-outline-variant/60 text-dark-on-surface-variant" title="Microphone Ready">
+            <span class="material-symbols-outlined text-[16px] text-dark-primary" aria-hidden="true">mic</span>
+            <span data-design-text-token="label-md" class="font-label text-label-md">Mic</span>
+          </div>
+
+          <div class="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full bg-dark-surface-container border border-dark-outline-variant/60 text-dark-on-surface-variant" title="Wi-Fi Connected">
+            <span class="material-symbols-outlined text-[16px] text-success" aria-hidden="true">wifi</span>
+            <span data-design-text-token="label-md" class="font-label text-label-md">Wi-Fi</span>
+          </div>
+
+          <button data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Open settings" class="inline-flex items-center justify-center w-10 h-10 rounded-md bg-dark-surface-container text-dark-on-surface-variant border border-dark-outline-variant/60 hover:bg-dark-surface-container-high hover:text-dark-on-surface transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">settings</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Workspace Canvas -->
+      <main class="flex-1 p-6 max-w-[1440px] w-full mx-auto flex flex-col gap-6">
+
+        <!-- A. Robot Identity & Personal Greeting -->
+        <section aria-label="Robot identity and greeting" class="bg-dark-surface-container-low rounded-lg border border-dark-outline-variant/60 px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <!-- Customizable Robot Avatar -->
+            <div class="w-14 h-14 rounded-lg bg-dark-surface-container-high border border-dark-outline-variant/70 flex items-center justify-center shrink-0">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <rect x="4" y="7" width="24" height="18" rx="6" fill="#191B23" stroke="#ADC6FF" stroke-width="1.5"></rect>
+                <circle cx="12" cy="15.5" r="2.2" fill="#ADC6FF"></circle>
+                <circle cx="20" cy="15.5" r="2.2" fill="#ADC6FF"></circle>
+                <path d="M13 20.5C14 21.4 18 21.4 19 20.5" stroke="#C2C6D6" stroke-width="1.5" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-1">
+              <div class="flex flex-wrap items-center gap-2.5">
+                <h2 data-design-text-token="headline-md" class="font-headline text-headline-md text-dark-on-surface">Aria-01</h2>
+                <span data-component-id="badge-status" data-component-type="badge" data-component-variant="status" role="status" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-dark-secondary-container/40 border border-dark-primary/30 text-dark-primary">
+                  <span class="w-1.5 h-1.5 rounded-full bg-dark-primary" aria-hidden="true"></span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm">Companion Mode</span>
+                </span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm text-success">Online</span>
+              </div>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface-variant text-pretty">
+                Good morning, Krishna. All tablet sensors are calibrated and Gemini Live is standing by.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 shrink-0">
+            <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="button" class="inline-flex items-center gap-2.5 min-h-12 px-5 py-2.5 rounded-md bg-dark-primary text-dark-on-primary font-label hover:opacity-90 active:scale-[0.98] transition-transform duration-state-change">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">mic</span>
+              <span data-design-text-token="label-lg" class="font-label text-label-lg">Start conversation</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Primary 12-Column Tablet Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+          <!-- Left Column: B. Robot Face Preview + C. Quick Actions (7 cols) -->
+          <div class="lg:col-span-7 flex flex-col gap-6">
+
+            <!-- B. Robot Face Preview Card -->
+            <article class="bg-dark-surface-container rounded-lg border border-dark-outline-variant/60 p-5 flex flex-col gap-4">
+              <header class="flex items-center justify-between gap-4">
+                <div>
+                  <h3 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-dark-on-surface">Robot Face Preview</h3>
+                  <p id="face-state-label" data-design-text-token="body-sm" class="font-body text-body-sm text-dark-on-surface-variant">Expression: Idle · Natural blink &amp; breathing active</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button type="button" class="inline-flex items-center gap-1.5 min-h-10 px-3.5 py-2 rounded-md bg-dark-surface-container-high text-dark-on-surface border border-dark-outline-variant/60 hover:bg-dark-surface-container-highest transition-colors duration-state-change">
+                    <span class="material-symbols-outlined text-[18px] text-dark-primary" aria-hidden="true">fullscreen</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md">Full-screen face</span>
+                  </button>
+                </div>
+              </header>
+
+              <!-- Expressive Robot Face Stage -->
+              <div class="relative w-full min-h-[250px] rounded-md bg-dark-surface-container-lowest border border-dark-outline-variant/50 flex items-center justify-center overflow-hidden p-6">
+                <svg id="robot-face-svg" class="kl-face-breath w-full max-w-[340px] h-auto" viewBox="0 0 340 190" fill="none" role="img" aria-label="Aria-01 animated robot face">
+                  <!-- Subtle Head Outline Frame -->
+                  <rect x="20" y="14" width="300" height="162" rx="34" fill="#10131A" stroke="#272A31" stroke-width="2"></rect>
+
+                  <!-- Left Eye Group -->
+                  <g id="eye-left-group" class="kl-eye-blink" style="transform-box: fill-box; transform-origin: center;">
+                    <rect id="eye-left-socket" x="78" y="54" width="54" height="58" rx="22" fill="#191B23" stroke="#424754" stroke-width="1.5"></rect>
+                    <rect id="eye-left-iris" x="87" y="63" width="36" height="40" rx="16" fill="#ADC6FF" style="transform-box: fill-box; transform-origin: center; transition: transform 240ms cubic-bezier(0.2, 0, 0, 1);"></rect>
+                    <circle id="eye-left-pupil" cx="105" cy="83" r="8" fill="#0B0E15" style="transform-box: fill-box; transform-origin: center; transition: transform 240ms cubic-bezier(0.2, 0, 0, 1);"></circle>
+                    <circle cx="111" cy="76" r="3" fill="#FFFFFF" opacity="0.85"></circle>
+                  </g>
+
+                  <!-- Right Eye Group -->
+                  <g id="eye-right-group" class="kl-eye-blink" style="transform-box: fill-box; transform-origin: center;">
+                    <rect id="eye-right-socket" x="208" y="54" width="54" height="58" rx="22" fill="#191B23" stroke="#424754" stroke-width="1.5"></rect>
+                    <rect id="eye-right-iris" x="217" y="63" width="36" height="40" rx="16" fill="#ADC6FF" style="transform-box: fill-box; transform-origin: center; transition: transform 240ms cubic-bezier(0.2, 0, 0, 1);"></rect>
+                    <circle id="eye-right-pupil" cx="235" cy="83" r="8" fill="#0B0E15" style="transform-box: fill-box; transform-origin: center; transition: transform 240ms cubic-bezier(0.2, 0, 0, 1);"></circle>
+                    <circle cx="241" cy="76" r="3" fill="#FFFFFF" opacity="0.85"></circle>
+                  </g>
+
+                  <!-- Expressive Mouth / Voice Bar -->
+                  <path id="face-mouth" d="M 142 138 Q 170 146 198 138" stroke="#C2C6D6" stroke-width="3.5" stroke-linecap="round" fill="none" style="transition: d 200ms ease-out;"></path>
+
+                  <!-- Speaking Waveform Bars (hidden unless speaking) -->
+                  <g id="face-waveform" opacity="0" style="transition: opacity 200ms ease-out;">
+                    <rect x="138" y="132" width="5" height="14" rx="2.5" fill="#ADC6FF"></rect>
+                    <rect x="150" y="126" width="5" height="26" rx="2.5" fill="#ADC6FF"></rect>
+                    <rect x="162" y="122" width="5" height="34" rx="2.5" fill="#ADC6FF"></rect>
+                    <rect x="174" y="126" width="5" height="26" rx="2.5" fill="#ADC6FF"></rect>
+                    <rect x="186" y="130" width="5" height="18" rx="2.5" fill="#ADC6FF"></rect>
+                    <rect x="198" y="134" width="5" height="10" rx="2.5" fill="#ADC6FF"></rect>
+                  </g>
+                </svg>
+
+                <!-- Corner Studio Tag -->
+                <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-dark-outline absolute bottom-3 right-4 tabular-nums">60 FPS · Vector Rig</span>
+              </div>
+
+              <!-- Interactive Expression Selector -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Preview facial expression">
+                  <button type="button" data-expr="idle" class="expr-btn min-h-10 px-3.5 py-1.5 rounded-full bg-dark-primary text-dark-on-primary font-label text-label-md transition-colors duration-state-change">Idle</button>
+                  <button type="button" data-expr="listening" class="expr-btn min-h-10 px-3.5 py-1.5 rounded-full bg-dark-surface-container-high text-dark-on-surface-variant hover:text-dark-on-surface font-label text-label-md transition-colors duration-state-change">Listening</button>
+                  <button type="button" data-expr="speaking" class="expr-btn min-h-10 px-3.5 py-1.5 rounded-full bg-dark-surface-container-high text-dark-on-surface-variant hover:text-dark-on-surface font-label text-label-md transition-colors duration-state-change">Speaking</button>
+                  <button type="button" data-expr="happy" class="expr-btn min-h-10 px-3.5 py-1.5 rounded-full bg-dark-surface-container-high text-dark-on-surface-variant hover:text-dark-on-surface font-label text-label-md transition-colors duration-state-change">Happy</button>
+                  <button type="button" data-expr="thinking" class="expr-btn min-h-10 px-3.5 py-1.5 rounded-full bg-dark-surface-container-high text-dark-on-surface-variant hover:text-dark-on-surface font-label text-label-md transition-colors duration-state-change">Thinking</button>
+                </div>
+                <a href="#face-studio" data-design-text-token="label-md" class="font-label text-label-md text-dark-primary hover:underline">Open Face Studio</a>
+              </div>
+            </article>
+
+            <!-- C. Quick Actions -->
+            <section aria-label="Quick actions" class="flex flex-col gap-3">
+              <h3 data-design-text-token="title-md" class="font-title text-title-md text-dark-on-surface">Quick Actions</h3>
+              <div class="grid grid-cols-2 gap-3">
+                <button data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" type="button" class="flex items-center gap-3.5 min-h-14 px-4 py-3 rounded-md bg-dark-surface-container border border-dark-outline-variant/60 hover:bg-dark-surface-container-high active:scale-[0.98] transition-colors duration-state-change text-left">
+                  <span class="material-symbols-outlined text-[20px] text-dark-primary shrink-0" aria-hidden="true">videocam</span>
+                  <span data-design-text-token="label-lg" class="font-label text-label-lg text-dark-on-surface">Activate camera</span>
+                </button>
+
+                <button id="quick-listen-btn" data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" type="button" class="flex items-center gap-3.5 min-h-14 px-4 py-3 rounded-md bg-dark-surface-container border border-dark-outline-variant/60 hover:bg-dark-surface-container-high active:scale-[0.98] transition-colors duration-state-change text-left">
+                  <span class="material-symbols-outlined text-[20px] text-dark-primary shrink-0" aria-hidden="true">hearing</span>
+                  <span data-design-text-token="label-lg" class="font-label text-label-lg text-dark-on-surface">Activate listening</span>
+                </button>
+
+                <button data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" type="button" class="flex items-center gap-3.5 min-h-14 px-4 py-3 rounded-md bg-dark-surface-container border border-dark-outline-variant/60 hover:bg-dark-surface-container-high active:scale-[0.98] transition-colors duration-state-change text-left">
+                  <span class="material-symbols-outlined text-[20px] text-dark-primary shrink-0" aria-hidden="true">fullscreen</span>
+                  <span data-design-text-token="label-lg" class="font-label text-label-lg text-dark-on-surface">Open full-screen face</span>
+                </button>
+
+                <button data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" type="button" class="flex items-center gap-3.5 min-h-14 px-4 py-3 rounded-md bg-dark-surface-container border border-dark-outline-variant/60 hover:bg-dark-surface-container-high active:scale-[0.98] transition-colors duration-state-change text-left">
+                  <span class="material-symbols-outlined text-[20px] text-dark-primary shrink-0" aria-hidden="true">tune</span>
+                  <span data-design-text-token="label-lg" class="font-label text-label-lg text-dark-on-surface">Open controls</span>
+                </button>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- Right Column: D. System Status + E. Recent Activity (5 cols) -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+
+            <!-- D. System Status -->
+            <article class="bg-dark-surface-container rounded-lg border border-dark-outline-variant/60 p-5 flex flex-col gap-3">
+              <header class="flex items-center justify-between gap-4">
+                <div>
+                  <h3 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-dark-on-surface">System Status</h3>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-dark-on-surface-variant">Tablet hardware and cloud services</p>
+                </div>
+                <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-success tabular-nums">6/6 Verified</span>
+              </header>
+
+              <ul data-component-id="list-leading-icon" data-component-type="list" data-component-variant="with-leading-icon" class="divide-y divide-dark-outline-variant/40">
+                <li class="flex items-center justify-between gap-3 py-2.5">
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[18px] text-dark-primary" aria-hidden="true">neurology</span>
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">AI connection</span>
+                  </div>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-success">Gemini Live</span>
+                </li>
+                <li class="flex items-center justify-between gap-3 py-2.5">
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[18px] text-dark-primary" aria-hidden="true">mic</span>
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">Microphone</span>
+                  </div>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-success">Ready</span>
+                </li>
+                <li class="flex items-center justify-between gap-3 py-2.5">
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[18px] text-dark-primary" aria-hidden="true">volume_up</span>
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">Speaker</span>
+                  </div>
+                  <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-dark-on-surface-variant tabular-nums">72%</span>
+                </li>
+                <li class="flex items-center justify-between gap-3 py-2.5">
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[18px] text-dark-primary" aria-hidden="true">videocam</span>
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">Camera</span>
+                  </div>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-success">1080p Ready</span>
+                </li>
+                <li class="flex items-center justify-between gap-3 py-2.5">
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[18px] text-dark-on-surface-variant" aria-hidden="true">flashlight_on</span>
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">Flashlight capability</span>
+                  </div>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-dark-on-surface-variant">Standby</span>
+                </li>
+                <li class="flex items-center justify-between gap-3 py-2.5">
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[18px] text-dark-primary" aria-hidden="true">wifi</span>
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">Internet connection</span>
+                  </div>
+                  <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-success tabular-nums">148 Mbps</span>
+                </li>
+              </ul>
+            </article>
+
+            <!-- E. Recent Activity -->
+            <article class="bg-dark-surface-container rounded-lg border border-dark-outline-variant/60 p-5 flex flex-col gap-3">
+              <header class="flex items-center justify-between gap-4">
+                <div>
+                  <h3 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-dark-on-surface">Recent Activity</h3>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-dark-on-surface-variant">Latest conversations and events</p>
+                </div>
+                <a href="#activity" data-design-text-token="label-md" class="font-label text-label-md text-dark-primary hover:underline">View all</a>
+              </header>
+
+              <ul data-component-id="list-two-line" data-component-type="list" data-component-variant="two-line" class="divide-y divide-dark-outline-variant/40">
+                <li class="flex items-start justify-between gap-4 py-2.5">
+                  <div class="flex flex-col gap-0.5">
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">Voice conversation ended</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-dark-on-surface-variant">Morning lab checklist summarized</span>
+                  </div>
+                  <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-dark-outline tabular-nums shrink-0">06:38 AM</span>
+                </li>
+                <li class="flex items-start justify-between gap-4 py-2.5">
+                  <div class="flex flex-col gap-0.5">
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">Vision scan completed</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-dark-on-surface-variant">Workbench target · 1280 × 720</span>
+                  </div>
+                  <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-dark-outline tabular-nums shrink-0">06:24 AM</span>
+                </li>
+                <li class="flex items-start justify-between gap-4 py-2.5">
+                  <div class="flex flex-col gap-0.5">
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">Gemini Live connected</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-dark-on-surface-variant">Credential verified · 42 ms</span>
+                  </div>
+                  <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-dark-outline tabular-nums shrink-0">06:15 AM</span>
+                </li>
+                <li class="flex items-start justify-between gap-4 py-2.5">
+                  <div class="flex flex-col gap-0.5">
+                    <span data-design-text-token="body-md" class="font-body text-body-md text-dark-on-surface">Startup greeting automation</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-dark-on-surface-variant">Completed idle wake sequence</span>
+                  </div>
+                  <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-dark-outline tabular-nums shrink-0">06:15 AM</span>
+                </li>
+              </ul>
+            </article>
+
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Interactive Shell & Robot Face Expression Preview -->
+  <script>
+    (function () {
+      const sidebar = document.getElementById('app-sidebar');
+      const toggleBtn = document.getElementById('sidebar-toggle');
+      const sidebarLabels = document.querySelectorAll('.sidebar-label');
+      let collapsed = false;
+
+      if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', () => {
+          collapsed = !collapsed;
+          sidebar.classList.toggle('w-[220px]', !collapsed);
+          sidebar.classList.toggle('w-[72px]', collapsed);
+          sidebarLabels.forEach((el) => el.classList.toggle('hidden', collapsed));
+          toggleBtn.setAttribute('aria-label', collapsed ? 'Expand navigation sidebar' : 'Collapse navigation sidebar');
+        });
+      }
+
+      const exprBtns = document.querySelectorAll('.expr-btn');
+      const stateLabel = document.getElementById('face-state-label');
+      const leftIris = document.getElementById('eye-left-iris');
+      const rightIris = document.getElementById('eye-right-iris');
+      const leftPupil = document.getElementById('eye-left-pupil');
+      const rightPupil = document.getElementById('eye-right-pupil');
+      const mouth = document.getElementById('face-mouth');
+      const waveform = document.getElementById('face-waveform');
+      const quickListenBtn = document.getElementById('quick-listen-btn');
+
+      const expressions = {
+        idle: {
+          label: 'Expression: Idle · Natural blink & breathing active',
+          irisTransform: 'scale(1, 1)',
+          pupilTransform: 'translate(0px, 0px)',
+          mouthPath: 'M 142 138 Q 170 146 198 138',
+          mouthOpacity: '1',
+          waveOpacity: '0'
+        },
+        listening: {
+          label: 'Expression: Listening · Microphone active & attentive gaze',
+          irisTransform: 'scale(1.12, 1.12)',
+          pupilTransform: 'translate(0px, -2px)',
+          mouthPath: 'M 152 139 Q 170 141 188 139',
+          mouthOpacity: '1',
+          waveOpacity: '0'
+        },
+        speaking: {
+          label: 'Expression: Speaking · Gemini Live voice output active',
+          irisTransform: 'scale(1.04, 1.04)',
+          pupilTransform: 'translate(0px, 0px)',
+          mouthPath: 'M 142 138 Q 170 146 198 138',
+          mouthOpacity: '0',
+          waveOpacity: '1'
+        },
+        happy: {
+          label: 'Expression: Happy · Friendly companion acknowledgment',
+          irisTransform: 'scale(1.05, 0.72)',
+          pupilTransform: 'translate(0px, 2px)',
+          mouthPath: 'M 136 134 Q 170 156 204 134',
+          mouthOpacity: '1',
+          waveOpacity: '0'
+        },
+        thinking: {
+          label: 'Expression: Thinking · Processing request',
+          irisTransform: 'scale(0.95, 0.85)',
+          pupilTransform: 'translate(7px, -6px)',
+          mouthPath: 'M 150 140 Q 170 136 190 140',
+          mouthOpacity: '1',
+          waveOpacity: '0'
+        }
+      };
+
+      function setExpression(name) {
+        const cfg = expressions[name] || expressions.idle;
+        if (stateLabel) stateLabel.textContent = cfg.label;
+        if (leftIris) leftIris.style.transform = cfg.irisTransform;
+        if (rightIris) rightIris.style.transform = cfg.irisTransform;
+        if (leftPupil) leftPupil.style.transform = cfg.pupilTransform;
+        if (rightPupil) rightPupil.style.transform = cfg.pupilTransform;
+        if (mouth) {
+          mouth.setAttribute('d', cfg.mouthPath);
+          mouth.style.opacity = cfg.mouthOpacity;
+        }
+        if (waveform) waveform.style.opacity = cfg.waveOpacity;
+
+        exprBtns.forEach((btn) => {
+          const active = btn.dataset.expr === name;
+          btn.classList.toggle('bg-dark-primary', active);
+          btn.classList.toggle('text-dark-on-primary', active);
+          btn.classList.toggle('bg-dark-surface-container-high', !active);
+          btn.classList.toggle('text-dark-on-surface-variant', !active);
+        });
+      }
+
+      exprBtns.forEach((btn) => {
+        btn.addEventListener('click', () => setExpression(btn.dataset.expr));
+      });
+
+      if (quickListenBtn) {
+        quickListenBtn.addEventListener('click', () => setExpression('listening'));
+      }
+    })();
+  </script>
+
+
+</body></html>
