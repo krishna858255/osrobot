@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Krishna Labs Robotics AI</string>
+    <string name="default_robot_name">Aria-01</string>
+    <string name="default_assistant_name">Aria</string>
+    <string name="default_greeting">Hello! I\'m your AI robot companion. How can I help you today?</string>
+    <string name="companion_mode">Companion Mode</string>
+    <string name="workbench_mode">Workbench Mode</string>
+    <string name="standby_mode">Standby Mode</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_assistant">AI Assistant</string>
+    <string name="nav_face">Robot Face</string>
+    <string name="nav_vision">Vision</string>
+    <string name="nav_controls">Controls</string>
+    <string name="nav_automations">Automations</string>
+    <string name="nav_activity">Activity</string>
+    <string name="nav_settings">Settings</string>
+    
+    <!-- Home Dashboard -->
+    <string name="robot_identity">Robot Identity</string>
+    <string name="robot_face_preview">Robot Face Preview</string>
+    <string name="quick_actions">Quick Actions</string>
+    <string name="system_status">System Status</string>
+    <string name="recent_activity">Recent Activity</string>
+    <string name="start_conversation">Start conversation</string>
+    
+    <!-- AI Assistant -->
+    <string name="type_message">Type a message…</string>
+    <string name="voice_interaction">Voice Interaction</string>
+    <string name="conversation_history">Conversation History</string>
+    
+    <!-- Settings -->
+    <string name="robot_identity_settings">Robot Identity</string>
+    <string name="gemini_ai_settings">Gemini AI</string>
+    <string name="voice_settings">Voice</string>
+    <string name="appearance_settings">Appearance</string>
+    <string name="face_settings">Robot Face</string>
+    <string name="camera_settings">Camera</string>
+    <string name="privacy_settings">Privacy &amp; Permissions</string>
+    <string name="about_settings">About Application</string>
+    
+    <!-- Permissions -->
+    <string name="camera_permission_rationale">Camera access is needed for the robot\'s vision system.</string>
+    <string name="microphone_permission_rationale">Microphone access is needed for voice interaction.</string>
+    
+    <!-- Face States -->
+    <string name="face_idle">Idle</string>
+    <string name="face_listening">Listening</string>
+    <string name="face_thinking">Thinking</string>
+    <string name="face_speaking">Speaking</string>
+    <string name="face_happy">Happy</string>
+    <string name="face_curious">Curious</string>
+    <string name="face_surprised">Surprised</string>
+    <string name="face_confused">Confused</string>
+    <string name="face_sleepy">Sleepy</string>
+    <string name="face_excited">Excited</string>
+    
+    <!-- Hardware -->
+    <string name="status_connected">Connected</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_unavailable">Unavailable</string>
+    <string name="status_not_configured">Not configured</string>
+    <string name="status_offline">Offline</string>
+    <string name="status_planned">Planned</string>
+</resources>
